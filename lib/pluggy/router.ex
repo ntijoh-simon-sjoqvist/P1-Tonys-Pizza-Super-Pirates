@@ -18,6 +18,7 @@ defmodule Pluggy.Router do
 
   plug(:fetch_session)
   plug(Plug.Parsers, parsers: [:urlencoded, :multipart])
+  plug(:put_html_content_type)
   plug(:match)
   plug(:dispatch)
 
@@ -42,6 +43,8 @@ defmodule Pluggy.Router do
   match _ do
     send_resp(conn, 404, "oop")
   end
+
+  defp put_html_content_type(conn, _), do: put_resp_content_type(conn, "text/html")
 
   defp put_secret_key_base(conn, _) do
     put_in(
