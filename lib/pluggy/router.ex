@@ -41,7 +41,7 @@ defmodule Pluggy.Router do
   post("/users/logout", do: UserController.logout(conn))
 
   match _ do
-    send_resp(conn, 404, "oops")
+    send_resp(conn, 404, "oop")
   end
 
   defp put_html_content_type(conn, _), do: put_resp_content_type(conn, "text/html")
