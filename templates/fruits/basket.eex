@@ -1,0 +1,10 @@
+<div class="body">
+	<header>
+		<h1>Your Order</h1>
+	</header>
+
+	<form action="/fruits/" method="post" enctype="multipart/form-data">
+		<input type="text" name="name" />
+		<button type=submit>Create Fruit</button>
+	</form>
+</div>
