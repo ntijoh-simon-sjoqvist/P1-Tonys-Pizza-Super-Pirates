@@ -18,7 +18,7 @@ defmodule Pluggy.FruitController do
   end
 
   # render använder eex
-  def new(conn), do: send_resp(conn, 200, render("fruits/new", []))
+  def new(conn), do: send_resp(conn, 200, render("fruits/basket", []))
   def show(conn, id), do: send_resp(conn, 200, render("fruits/show", fruit: Fruit.get(id)))
   def edit(conn, id), do: send_resp(conn, 200, render("fruits/edit", fruit: Fruit.get(id)))
 
