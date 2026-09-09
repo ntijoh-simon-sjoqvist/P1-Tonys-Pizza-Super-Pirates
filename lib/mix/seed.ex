@@ -41,9 +41,9 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Magarhita", "margherita.svg"])
 
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Apple", 5])
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Pear", 4])
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Banana", 7])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Apple", 5])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Pear", 4])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Banana", 7])
 
     Postgrex.query!(
       DB,
