@@ -2,57 +2,33 @@
 
 
 
-<h1>Fruits.index (/fruits)</h1>
 
 
 
 
 
-<header id="">
 
-	<img src="../../Grafiskt naterial/tonys-pizza-logo.svg" alt="something">
 
-</header>
 
 
 <body id="body">
 	<header id="header">
-
+		<h1>Fruits.index (/fruits)</h1>
 
 		<p> header </p>
 
 
 	</header>
 
-	<sections id="sections">
-
-
-		<section id="section1">
-		<p> hello </p>
-		</section>
-
-		<section id="section2">
-		<p> hello </p>
-		</section>
-
-		<section id="section3">
-		<p> hello </p>
-		</section>
-
-		<section id="section4">
-		<p> hello </p>
-		</section>
-
-		<section id="section5">
-		<p> hello </p>
-		</section>
-
-		<section id="section6">
-		<p> hello </p>
-		</section>
-
-	</sections>
-
+	<ul>
+	<%= for pizz <- pizza do %>
+    	<li class="sections">
+    		<a href="/fruits/<%= pizz.id %>">
+				<%= html_escape(pizz.name) %> - <%= pizz.toppings %>
+			</a>
+		</li>
+	<% end %>
+	</ul>
 
 
 
@@ -61,16 +37,3 @@
 
 
 <a href="/fruits/new">Add new fruit</a>
-
-
-
-
-
-
-<%= for pizz <- pizza do %>
-    <li class="sections">
-    	<a href="/fruits/<%= pizz.id %>">
-			<%= html_escape(pizz.name) %> - <%= pizz.toppings %>
-		</a>
-	</li>
-  <% end %>

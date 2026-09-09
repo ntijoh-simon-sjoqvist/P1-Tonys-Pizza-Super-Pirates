@@ -22,8 +22,16 @@
 }
 
 
+.sections {
+	grid-area: sc;
+	display:flex;
+	justify-content: center;
+}
 
-#sections {
+
+
+
+/* #sections {
 	grid-area:sc;
 	display:grid;
 	grid-template-columns: auto;
@@ -33,7 +41,7 @@
 	's3 s4'
 	's5 s6'
 	;
-}
+} */
 
 
 

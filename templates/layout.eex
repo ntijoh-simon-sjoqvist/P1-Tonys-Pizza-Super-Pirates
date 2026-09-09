@@ -4,7 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Tony's Pizza</title>
 	<link rel="stylesheet" type="text/css" href="/pluggy.css">
+
+
 </head>
+
 <body>
 	<%= template %>
 </body>
