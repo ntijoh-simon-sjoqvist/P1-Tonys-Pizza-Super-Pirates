@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="priv/pluggy.css">
+
+
+
 <h1>Fruits.index (/fruits)</h1>
 
 <%= if user do %>
@@ -17,11 +21,11 @@
 
 
 
-<ul>
+<ul id="">
   <%= for fruit <- fruits do %>
     <li>
     	<a href="/fruits/<%= fruit.id %>">
-			<%= html_escape(fruit.name) %> - <%= fruit.tastiness %>
+			<%%= html_escape(fruit.name) %> - <%= fruit.tastiness %>
 		</a>
 	</li>
   <% end %>

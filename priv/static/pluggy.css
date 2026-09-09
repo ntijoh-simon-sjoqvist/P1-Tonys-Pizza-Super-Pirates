@@ -1,6 +1,86 @@
-body {
-	background-color: peachpuff;
+head {
+	background-color: rgb(228, 105, 105)
+
+
 }
+
+
+
+
+#body {
+	background-color: rgb(254, 254, 254);
+	display:grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	grid-template-areas:
+	'hd'
+	'scm'
+	
+
+	;
+}
+
+
+.sections {
+	display:flex;
+	
+
+}
+
+
+
+
+/* #sections {
+	grid-area:scm;
+	display:grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	grid-template-areas:
+	's1 s2'
+	's3 s4'
+	's5 s6'
+	;
+}
+
+
+
+#section1 {
+	grid-area:s1;
+	background-color:aqua;
+
+}
+
+#section2 {
+	grid-area:s2;
+	background-color:aquamarine;
+
+}
+
+#section3 {
+	grid-area:s3;
+	background-color:azure;
+}
+
+#section4 {
+	grid-area:s4;
+	background-color:beige;
+}
+
+#section5 {
+	grid-area:s5;
+	background-color:bisque;
+	
+}
+
+#section6 {
+	grid-area:s6;
+	background-color:blanchedalmond;
+} */
+
+
+
+
+
 
 
 
