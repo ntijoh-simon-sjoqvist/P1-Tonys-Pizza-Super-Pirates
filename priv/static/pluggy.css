@@ -44,15 +44,8 @@ head {
 }
 
 
-<<<<<<< HEAD
-/* #sections {
-	grid-area:scm;
-=======
-
-
 /* #sections {
 	grid-area:sc;
->>>>>>> 91b765105134fb9636491a1db43f058ca4817175
 	display:grid;
 	grid-template-columns: auto;
 	grid-template-rows: auto;
