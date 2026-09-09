@@ -4,8 +4,10 @@ defmodule Pluggy.Fruit do
   alias Pluggy.Fruit
 
   def all do
+    IO.puts(Postgrex.query!(DB, "SELECT * FROM pizza", []).rows)
     Postgrex.query!(DB, "SELECT * FROM pizza", []).rows
     |> to_struct_list
+
   end
 
   def get(id) do
@@ -36,11 +38,11 @@ defmodule Pluggy.Fruit do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
   end
 
-  def to_struct([[id, name, toppings]]) do
-    %Fruit{id: id, name: name, toppings: toppings}
+  def to_struct([[id, name]]) do
+    %Fruit{id: id, name: name}
   end
 
   def to_struct_list(rows) do
-    for [id, name, toppings] <- rows, do: %Fruit{id: id, name: name, toppings: toppings}
+    for [id, name] <- rows, do: %Fruit{id: id, name: name}
   end
 end
