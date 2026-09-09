@@ -4,7 +4,7 @@
 	</header>
 
 	<form action="/fruits/" method="post" enctype="multipart/form-data">
-		<input type="text" name="name" />
-		<button type=submit>Create Fruit</button>
+		<p>This should be box with the customers orders</p>
 	</form>
+	<button type=submit>Place Order</button>
 </div>
