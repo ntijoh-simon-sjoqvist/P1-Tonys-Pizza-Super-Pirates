@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adam.clarke/Documents/GitHub/P1-Tonys-Pizza-Super-Pirates/_build/dev/lib/bcrypt_elixir/priv/bcrypt_nif.so'
+relocations:     []
+...
