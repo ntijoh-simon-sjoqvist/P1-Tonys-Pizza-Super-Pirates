@@ -1,6 +1,6 @@
 <div class="body">
 	<header>
-	<h1>Your Order</h1>
+		<h1>Your Order</h1>
 	</header>
 
 	<form action="/fruits/" method="post" enctype="multipart/form-data">

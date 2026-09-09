@@ -92,15 +92,13 @@ head {
 
 
 
-
-.body{
+.body > header{
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	border: 2px solid blue;
-	height: 1000px;
 }
 
 .body > form{
+	display: flex;
+	justify-content: center;
 	border: 1px solid red;
 }
