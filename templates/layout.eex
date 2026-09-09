@@ -9,6 +9,9 @@
 </head>
 
 <body>
+	<header>
+		<img src="../Grafiskt material/tonys-pizza-logo.svg">
+	</header>
 	<%= template %>
 </body>
 </html>
