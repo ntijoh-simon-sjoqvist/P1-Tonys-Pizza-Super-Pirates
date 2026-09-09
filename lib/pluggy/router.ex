@@ -40,7 +40,7 @@ defmodule Pluggy.Router do
   post("/users/logout", do: UserController.logout(conn))
 
   match _ do
-    send_resp(conn, 404, "oops")
+    send_resp(conn, 404, "oop")
   end
 
   defp put_secret_key_base(conn, _) do

@@ -4,7 +4,7 @@ defmodule Pluggy.Fruit do
   alias Pluggy.Fruit
 
   def all do
-    Postgrex.query!(DB, "SELECT * FROM fruits", []).rows
+    Postgrex.query!(DB, "SELECT * FROM pizza", []).rows
     |> to_struct_list
   end
 
