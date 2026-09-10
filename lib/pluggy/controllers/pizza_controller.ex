@@ -17,6 +17,6 @@ defmodule Pluggy.PizzaController do
     send_resp(conn, 200, render("pizza/index", pizza: Pizza.all(), user: current_user))
   end
 
-    def new(conn), do: send_resp(conn, 200, render("pizza/new.html", []))
+  def basket(conn), do: send_resp(conn, 200, render("pizza/basket", []))
 
 end
