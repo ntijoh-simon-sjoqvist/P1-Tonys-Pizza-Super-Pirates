@@ -25,7 +25,7 @@ defmodule Pluggy.Router do
   # Sessions are demonstrated by the login form, but no route checks for a logged-in user:
   # anyone can create, edit and destroy fruits.
   get("/fruits", do: FruitController.index(conn))
-  get("/fruits/new", do: FruitController.new(conn))
+  get("/fruits/basket", do: FruitController.new(conn))
   get("/fruits/:id", do: FruitController.show(conn, id))
   get("/fruits/:id/edit", do: FruitController.edit(conn, id))
 
