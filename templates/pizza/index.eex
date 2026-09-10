@@ -11,18 +11,12 @@
 
 
 
-<body id="body">
-	<header id="header">
-		<h1>Fruits.index (/home)</h1>
-
-		<p> header </p>
 
 
-	</header>
 
-	<ul class="sections">
+	<main class="sections">
 	<%= for pizz <- pizza do %>
-    	<li class="section">
+    	<div class="section">
 
 			<section class="picture_box">
 				<img src="../Grafiskt material/<%=pizz.picture_id %>">
@@ -34,13 +28,13 @@
 				</a>
 			</section>
 
-		</li>
+		</div>
 	<% end %>
-	</ul>
+	</main>
 
 
 
-</body>
+
 
 
 

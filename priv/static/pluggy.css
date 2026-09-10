@@ -17,15 +17,11 @@ header > img{
 
 
 #body {
+	display: flex;
+	justify-content: center;
 	background-color: rgb(254, 254, 254);
-	display:grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto;
-	grid-template-areas:
-	'scm'
-	
-
-	;
+	border: 1px solid red;
+	width: 600px;
 }
 
 
@@ -33,8 +29,8 @@ header > img{
 
 .sections {
 	/*grid-area:scm; */
-	display:flex;
-	justify-content:space-evenly ;
+	display:grid;
+	grid-template-columns: auto auto;
 	align-items:center ;
 	object-position:row;
 	border:10px solid black;
@@ -44,15 +40,8 @@ header > img{
 
 
 .section {
-	grid-area: sc;
-	display:grid;
-	grid-template-columns: 50%;
-	grid-template-rows: 50%;
 	border:10px solid brown;
-	grid-template-areas:
-	'pc txt'
-	'pc but'
-	;
+
 }
 
 
@@ -77,11 +66,16 @@ header > img{
 
 .picture_box {
 	grid-area:pc;
-	display:inline-flex;
-	object-fit:cover;
+	/*display:inline-flex;*/
+	width: 50px;
+	height: 50px;
 	background-color:aqua;
 
 
+}
+
+.picture_box > img{
+	object-fit:cover;
 }
 
 .text_area {
