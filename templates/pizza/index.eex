@@ -22,10 +22,7 @@
 				<img src="../Grafiskt material/<%=pizz.picture_id %>">
 			</section>
 			<section class="text_area">
-				<a href="/fruits/<%= pizz.id %>" >
-
-					<p><%= html_escape(pizz.name) %> </p>
-				</a>
+				<p><%= html_escape(pizz.name) %> </p>
 			</section>
 
 		</div>

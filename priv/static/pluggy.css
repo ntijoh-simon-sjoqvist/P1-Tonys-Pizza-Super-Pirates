@@ -41,6 +41,13 @@ header > img{
 
 .section {
 	border:10px solid brown;
+	display:grid;
+	grid-template-columns:35% 65% ;
+	grid-template-areas:
+	'pc txt'
+	'pc btn'
+	;
+
 
 }
 
@@ -50,25 +57,14 @@ header > img{
 
 
 
-/* #sections {
-	grid-area:sc;
-	display:grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto;
-	grid-template-areas:
-	's1 s2'
-	's3 s4'
-	's5 s6'
-	;
-} */
+
 
 
 
 .picture_box {
 	grid-area:pc;
 	/*display:inline-flex;*/
-	width: 50px;
-	height: 50px;
+	
 	background-color:aqua;
 
 
@@ -88,27 +84,7 @@ header > img{
 
 }
 
-#section3 {
-	grid-area:s3;
-	background-color:azure;
-}
 
-#section4 {
-	grid-area:s4;
-	background-color:beige;
-}
-
-#section5 {
-	grid-area:s5;
-	background-color:bisque;
-	
-}
-
-
-#section6 {
-	grid-area:s6;
-	background-color:blanchedalmond;
-} */
 
 
 
