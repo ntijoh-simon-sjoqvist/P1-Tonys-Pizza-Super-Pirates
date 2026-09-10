@@ -2,6 +2,7 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
+  alias Pluggy.PizzaController
   alias Pluggy.FruitController
   alias Pluggy.UserController
 
@@ -24,6 +25,10 @@ defmodule Pluggy.Router do
 
   # Sessions are demonstrated by the login form, but no route checks for a logged-in user:
   # anyone can create, edit and destroy fruits.
+
+  get("/home", do: PizzaController.index(conn))
+
+
   get("/fruits", do: FruitController.index(conn))
   get("/fruits/basket", do: FruitController.new(conn))
   get("/fruits/:id", do: FruitController.show(conn, id))
