@@ -32,20 +32,33 @@ header > img{
 
 
 .sections {
-	grid-area:scm;
+	/*grid-area:scm; */
 	display:flex;
-	justify-content:space-evenly ;
-	align-items:center ;
+	justify-content:space-around ;
+	align-items:center  ;
+	object-position:row;
+	border:10px solid black;
 
 
 }
 
 
-.sections {
+.section {
 	grid-area: sc;
-	display:flex;
-	justify-content: center;
+	display:grid;
+	grid-template-columns: 50%;
+	grid-template-rows: 50%;
+	border:10px solid brown;
+	grid-template-areas:
+	'pc txt'
+	'pc but'
+	;
 }
+
+
+
+
+
 
 
 /* #sections {
@@ -62,15 +75,22 @@ header > img{
 
 
 
-#section1 {
-	grid-area:s1;
+.picture_box {
+	grid-area:pc;
+	display:inline-flex;
+	object-fit:cover;
 	background-color:aqua;
+
 
 }
 
-#section2 {
-	grid-area:s2;
+.text_area {
+	grid-area:txt;
+	display:inline-flex;
+	flex-wrap:wrap;
+	
 	background-color:aquamarine;
+
 
 }
 

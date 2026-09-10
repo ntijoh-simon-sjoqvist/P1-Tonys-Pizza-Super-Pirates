@@ -1,6 +1,5 @@
 defmodule Pluggy.Pizza do
-  defstruct(id: nil, name: "", toppings: 0)
-  
+  defstruct(id: nil, name: "", picture_id: "")
   alias Pluggy.Pizza
 
   def all do
@@ -38,12 +37,12 @@ defmodule Pluggy.Pizza do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
   end
 
-  def to_struct([[id, name]]) do
-    %Pizza{id: id, name: name}
+  def to_struct([[id, name, picture_id]]) do
+    %Pizza{id: id, name: name, picture_id: picture_id}
   end
 
   def to_struct_list(rows) do
-    for [id, name] <- rows, do: %Pizza{id: id, name: name}
+    for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, picture_id: picture_id}
   end
 
 end
