@@ -22,7 +22,7 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(
       DB,
       "CREATE TABLE pizza (id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL
+      name VARCHAR(255) NOT NULL, picture_id VARCHAR(255)
       )",
       []
     )
@@ -46,14 +46,14 @@ defmodule Mix.Tasks.Seed do
   defp seed_data() do
     IO.puts("Seeding data")
 
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Magarhita"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Capricciosa"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Diavola"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Marinara"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Ortolana"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Prodciutto-e-funghi"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Quattro-formaggi"])
-    Postgrex.query!(DB, "INSERT INTO pizza(name) VALUES($1)", ["Quattro-stagioni"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Magarhita", "margherita.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Capricciosa", "capricciosa.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Diavola", "diavola.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Marinara", "marinara.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Ortolana", "ortolana.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Prosciutto-e-funghi", "prosciutto-e-funghi.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Quattro-formaggi", "quattro-formaggi.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Quattro-stagioni", "quattro-stagioni.svg"])
 
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["tomatsås"])
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["mozzarella"])
