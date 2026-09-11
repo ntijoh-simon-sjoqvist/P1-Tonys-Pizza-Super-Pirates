@@ -22,8 +22,14 @@
 				<img src="../Grafiskt material/<%=pizz.picture_id %>">
 			</section>
 			<section class="text_area">
-				<p><%= html_escape(pizz.name) %> </p>
+				<p><%= html_escape(pizz.name) %>  </p>
 			</section>
+			<section class="button_box">
+				<form action="" method="post">
+					<input type="submit" value="anpassa">
+					<input type="submit" value="köp">
+				</form>
+			<section>
 
 		</div>
 	<% end %>

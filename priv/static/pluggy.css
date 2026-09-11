@@ -42,7 +42,8 @@ header > img{
 .section {
 	border:10px solid brown;
 	display:grid;
-	grid-template-columns:35% 65% ;
+	grid-template-columns:35%;
+	grid-template-rows:auto 1fr;
 	grid-template-areas:
 	'pc txt'
 	'pc btn'
@@ -57,7 +58,11 @@ header > img{
 
 
 
-
+.button_box {
+	grid-area:btn;
+	background-color:blueviolet;
+	height:fit-content;
+}
 
 
 
@@ -76,10 +81,11 @@ header > img{
 
 .text_area {
 	grid-area:txt;
+	float:left;
 	display:inline-flex;
 	flex-wrap:wrap;
-	
 	background-color:aquamarine;
+
 
 
 }
