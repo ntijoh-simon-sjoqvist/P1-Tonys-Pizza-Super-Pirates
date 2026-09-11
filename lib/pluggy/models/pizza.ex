@@ -49,4 +49,14 @@ defmodule Pluggy.Pizza do
     for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, picture_id: picture_id}
   end
 
+  def get_ing() do
+    IO.puts(Postgrex.query!(DB, "SELECT * FROM toppings", []).rows)
+    Postgrex.query!(DB, "SELECT * FROM toppings", []).rows
+    |> get_ing_to_struct
+  end
+
+  def get_ing_to_struct(rows) do
+    for [id, name] <- rows, do: %{id: id, name: name}
+  end
+
 end

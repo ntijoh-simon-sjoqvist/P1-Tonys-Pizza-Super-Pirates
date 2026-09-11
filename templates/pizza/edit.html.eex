@@ -1,1 +1,26 @@
-<p></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tony's Pizza</title>
+	<link rel="stylesheet" type="text/css" href="/edit.css">
+</head>
+<main>
+    <body>
+        <form id="checkboxform" action="/home" >
+
+    <%= for ing <- ing   do %>
+    <div>
+        <label><%= html_escape(ing.name) %></label>
+        <input type="checkbox" checked>
+    </div>
+    <% end %>
+     <input type="submit" value="save">
+     <input type="submit" value="buy">
+
+
+
+
+        </form>
+    </body>
+</main>

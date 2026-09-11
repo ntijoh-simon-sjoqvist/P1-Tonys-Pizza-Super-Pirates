@@ -22,7 +22,9 @@
 				<img src="../Grafiskt material/<%=pizz.picture_id %>">
 			</section>
 			<section class="text_area">
+
 				<p><%= html_escape(pizz.name) %> </p>
+
 			</section>
 
 		</div>
