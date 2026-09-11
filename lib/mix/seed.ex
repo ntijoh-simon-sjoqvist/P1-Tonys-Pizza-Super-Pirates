@@ -11,8 +11,11 @@ defmodule Mix.Tasks.Seed do
 
   defp drop_tables() do
     IO.puts("Dropping tables")
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS order_items", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS topping", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_toppings", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza", [])
-    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizzaresp", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS toppings", [])
   end
 
@@ -41,6 +44,23 @@ defmodule Mix.Tasks.Seed do
     pizza_id INTEGER REFERENCES pizza(id),
     topping_id INTEGER REFERENCES toppings(id)
     )"
+    )
+
+    Postgrex.query!(
+      DB,
+      "CREATE TABLE orders (id SERIAL PRIMARY KEY,
+      status VARCHAR(255)
+      )",
+      []
+    )
+
+    Postgrex.query!(
+      DB,
+      "CREATE TABLE order_items (
+      order_id INTEGER REFERENCES orders(id),
+      pizza_id INTEGER REFERENCES pizza(id)
+      )",
+      []
     )
   end
 
@@ -80,5 +100,11 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (6, 1), (6, 2), (6, 4), (6, 5)")
     Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (7, 1), (7, 2), (7, 8), (7, 9), (7, 10)")
     Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (8, 1), (8, 2), (8, 5), (8, 6), (8, 7)")
+
+
+    Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart')")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,2)")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,3)")
+
   end
 end
