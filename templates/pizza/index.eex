@@ -1,20 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<main class="sections">
+<main class="sections">
 	<%= for pizz <- pizza do %>
     	<div class="section">
 
@@ -22,9 +6,14 @@
 				<img src="../Grafiskt material/<%=pizz.img %>">
 			</section>
 			<section class="text_area">
-				<p><%= html_escape(pizz.name) %> </p>
+				<p><%= html_escape(pizz.name) %>  </p>
 			</section>
-			<p><%=pizz.ingredients %></p>
+			<section class="button_box">
+				<form action="" method="post">
+					<input type="submit" value="anpassa">
+					<input type="submit" value="köp">
+				</form>
+			<section>
 		</div>
 	<% end %>
 	</main>
