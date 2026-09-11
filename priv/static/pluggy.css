@@ -28,6 +28,7 @@ header > img{
 
 
 .sections {
+	/*grid-area:scm; */
 	display:grid;
 	grid-template-columns: auto auto;
 	align-items:center ;
@@ -67,6 +68,7 @@ header > img{
 
 .picture_box {
 	grid-area:pc;
+	/*display:inline-flex;*/
 	
 	background-color:aqua;
 
@@ -79,7 +81,7 @@ header > img{
 
 .text_area {
 	grid-area:txt;
-	float:left;
+	float: left;
 	display:inline-flex;
 	flex-wrap:wrap;
 	background-color:aquamarine;
@@ -93,28 +95,26 @@ header > img{
 
 
 
+.body{
+	border: 1px solid black;
+}
+
 .body > form{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: auto auto;
+	margin: auto;
 	border-radius: 10px;
-	box-shadow: 0px 0px 12px 5px grey;
+	box-shadow: 0px 0px 10px 5px grey;
 	width: 600px;
 	height: 250px;
 }
 
-.body > .end-align > button{
+.body > button{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 25%;
+	margin: auto 900px;
 	height: 30px;
-	width: 5%;
-	background: teal;
-}
-
-.end-align{
-	display: flex;
-	justify-content: flex-end;
+	width: 8%;
 }

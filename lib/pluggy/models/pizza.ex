@@ -11,7 +11,7 @@ defmodule Pluggy.Pizza do
 
   def get_resp do
     Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
-    |> resp
+    
 
   end
 
@@ -38,7 +38,7 @@ defmodule Pluggy.Pizza do
   end
 
   def resp do
-    
+
   end
 
   def to_struct([[id, name, picture_id]]) do
