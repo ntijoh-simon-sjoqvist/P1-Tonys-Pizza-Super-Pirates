@@ -1,5 +1,6 @@
 defmodule Pluggy.Pizza do
-  defstruct(id: nil, name: "", picture_id: "", pizzaid: nil, resp: "")
+  # require IEx
+  defstruct(id: nil, name: "", img: "", ingredients: [])
 
   alias Pluggy.Pizza
 
@@ -9,11 +10,49 @@ defmodule Pluggy.Pizza do
     |> to_struct_list
   end
 
-  # def get_resp do
-  #   Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
-  #   |> resp
+  def get_resp do
+  Postgrex.query!(
+    DB,
+    "
+    SELECT pizza.*, pizza_toppings.*, toppings.name
+    FROM pizza
+    JOIN pizza_toppings
+      ON pizza.id = pizza_toppings.pizza_id
+    JOIN toppings
+      ON toppings.id = pizza_toppings.topping_id
+    "
+  )
+  |> from_result()
+end
 
-  # end
+def from_result(%Postgrex.Result{rows: rows}) do
+  rows
+  |> Enum.group_by(fn [_id, _pizza_name, _pic, pizza_id, _topping_id, _topping_name] ->
+    pizza_id
+  end)
+  |> Enum.map(fn {_pizza_id, pizza_rows} ->
+    [[id, name, img, _pizza_id, _topping_id, _topping_name] | _] = pizza_rows
+
+    ingredients =
+      Enum.map(pizza_rows, fn [
+        _id,
+        _name,
+        _img,
+        _pizza_id,
+        _topping_id,
+        topping_name
+      ] ->
+        topping_name
+      end)
+
+    %Pizza{
+      id: id,
+      name: name,
+      img: img,
+      ingredients: ingredients
+    }
+  end)
+end
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]).rows
@@ -37,16 +76,12 @@ defmodule Pluggy.Pizza do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
   end
 
-  def resp do
-
-  end
-
   def to_struct([[id, name, picture_id]]) do
-    %Pizza{id: id, name: name, picture_id: picture_id}
+    %Pizza{id: id, name: name, img: picture_id}
   end
 
   def to_struct_list(rows) do
-    for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, picture_id: picture_id}
+    for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, img: picture_id}
   end
 
 end
