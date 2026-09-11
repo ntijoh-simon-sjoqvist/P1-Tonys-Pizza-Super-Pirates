@@ -11,7 +11,7 @@ defmodule Pluggy.Pizza do
 
   def get_resp do
     Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
-    |> resp
+    # |> resp
 
   end
 
@@ -37,9 +37,9 @@ defmodule Pluggy.Pizza do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
   end
 
-  def resp do
-    
-  end
+  # def resp do
+
+  # end
 
   def to_struct([[id, name, picture_id]]) do
     %Pizza{id: id, name: name, picture_id: picture_id}

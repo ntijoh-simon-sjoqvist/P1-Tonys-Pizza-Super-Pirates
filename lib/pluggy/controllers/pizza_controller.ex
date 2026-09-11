@@ -18,5 +18,6 @@ defmodule Pluggy.PizzaController do
   end
 
   def basket(conn), do: send_resp(conn, 200, render("pizza/basket", []))
+  def edit(conn), do: send_resp(conn, 200, render("pizza/edit.html", []))
 
 end
