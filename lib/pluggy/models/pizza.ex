@@ -9,11 +9,11 @@ defmodule Pluggy.Pizza do
     |> to_struct_list
   end
 
-  def get_resp do
-    Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
-    |> resp
+  # def get_resp do
+  #   Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
+  #   |> resp
 
-  end
+  # end
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]).rows
@@ -38,7 +38,7 @@ defmodule Pluggy.Pizza do
   end
 
   def resp do
-    
+
   end
 
   def to_struct([[id, name, picture_id]]) do

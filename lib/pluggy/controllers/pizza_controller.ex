@@ -17,6 +17,16 @@ defmodule Pluggy.PizzaController do
     send_resp(conn, 200, render("pizza/index", pizza: Pizza.all(), user: current_user))
   end
 
-  def basket(conn), do: send_resp(conn, 200, render("pizza/basket", []))
+  def basket(conn) do
+    session_user = conn.private.plug_session["user_id"]
+
+    current_user =
+      case session_user do
+        nil -> nil
+        _ -> User.get(session_user)
+      end
+
+    send_resp(conn, 200, render("pizza/basket.html", pizza: Pizza.all(), user: current_user))
+end
 
 end

@@ -1,0 +1,19 @@
+<main>
+	<div class="body">
+		<form class="sections">
+			<%= for pizz <- pizza do %>
+			<div class="section">
+			<section class="picture_box">
+				<img src="../Grafiskt material/<%=pizz.picture_id %>">
+			</section>
+			<section class="text_area">
+				<p><%= html_escape(pizz.name) %> </p>
+			</section>
+			</div>
+			<% end %>
+		</form>
+		<div class="end-align">
+		<button type="submit">Place order</button>
+		</div>
+	</div>
+</main>
