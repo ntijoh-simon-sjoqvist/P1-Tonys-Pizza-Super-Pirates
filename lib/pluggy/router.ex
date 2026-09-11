@@ -27,6 +27,7 @@ defmodule Pluggy.Router do
   # anyone can create, edit and destroy fruits.
 
   get("/home", do: PizzaController.index(conn))
+  get("/home/basket", do: PizzaController.basket(conn))
 
 
   get("/fruits", do: FruitController.index(conn))

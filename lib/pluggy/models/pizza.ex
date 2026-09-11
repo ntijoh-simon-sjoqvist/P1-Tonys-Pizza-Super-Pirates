@@ -1,11 +1,17 @@
 defmodule Pluggy.Pizza do
-  defstruct(id: nil, name: "", picture_id: "")
+  defstruct(id: nil, name: "", picture_id: "", pizzaid: nil, resp: "")
+
   alias Pluggy.Pizza
 
   def all do
     IO.puts(Postgrex.query!(DB, "SELECT * FROM pizza", []).rows)
     Postgrex.query!(DB, "SELECT * FROM pizza", []).rows
     |> to_struct_list
+  end
+
+  def get_resp do
+    Postgrex.query!(DB, "SELECT * FROM pizzaresp", [])
+    |> resp
 
   end
 
@@ -26,15 +32,13 @@ defmodule Pluggy.Pizza do
     )
   end
 
-  def create(params) do
-    name = params["name"]
-    tastiness = String.to_integer(params["tastiness"])
-
-    Postgrex.query!(DB, "INSERT INTO pizza (name, tastiness) VALUES ($1, $2)", [name, tastiness])
-  end
 
   def delete(id) do
     Postgrex.query!(DB, "DELETE FROM pizza WHERE id = $1", [String.to_integer(id)])
+  end
+
+  def resp do
+    
   end
 
   def to_struct([[id, name, picture_id]]) do

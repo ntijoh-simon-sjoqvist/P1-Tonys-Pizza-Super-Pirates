@@ -26,13 +26,6 @@ defmodule Mix.Tasks.Seed do
       )",
       []
     )
-    Postgrex.query(
-      DB,
-      "CREATE TABLE pizzaresp (pizzaid INTEGER NOT NULL,
-      toppings VARCHAR(255) NOT NULL
-      )",
-      []
-    )
 
     Postgrex.query!(
       DB,
@@ -40,6 +33,14 @@ defmodule Mix.Tasks.Seed do
       name VARCHAR(255) NOT NULL
       )",
       []
+    )
+
+    Postgrex.query!(
+      DB,
+    "CREATE TABLE pizza_toppings (
+    pizza_id INTEGER REFERENCES pizza(id),
+    topping_id INTEGER REFERENCES toppings(id)
+    )"
     )
   end
 
@@ -71,13 +72,13 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["salami"])
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["chili"])
 
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [1, "1, 2, 3"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [2, "1, 2, 4, 5, 6"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [3, "1, 2, 14, 11, 15"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [4, "1"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [5, "1, 2, 11, 12, 13"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [6, "1, 2, 4, 5"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [7, "1, 2, 8, 9, 10"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [8, "1, 2, 4, 5, 6, 7"])
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (1, 1), (1, 2), (1, 3)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (2, 1), (2, 2), (2, 4), (2, 5), (2, 6)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (3, 1), (3, 2), (3, 14), (3, 11), (3, 15)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (4, 1)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (5, 1), (5, 2), (5, 11), (5, 12), (5, 13)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (6, 1), (6, 2), (6, 4), (6, 5)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (7, 1), (7, 2), (7, 8), (7, 9), (7, 10)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (8, 1), (8, 2), (8, 5), (8, 6), (8, 7)")
   end
 end
