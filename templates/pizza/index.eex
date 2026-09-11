@@ -19,12 +19,12 @@
     	<div class="section">
 
 			<section class="picture_box">
-				<img src="../Grafiskt material/<%=pizz.picture_id %>">
+				<img src="../Grafiskt material/<%=pizz.img %>">
 			</section>
 			<section class="text_area">
 				<p><%= html_escape(pizz.name) %> </p>
 			</section>
-
+			<p><%=pizz.ingredients %></p>
 		</div>
 	<% end %>
 	</main>
