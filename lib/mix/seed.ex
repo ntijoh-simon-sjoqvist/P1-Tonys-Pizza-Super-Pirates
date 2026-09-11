@@ -11,8 +11,11 @@ defmodule Mix.Tasks.Seed do
 
   defp drop_tables() do
     IO.puts("Dropping tables")
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS order_items", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS topping", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_toppings", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza", [])
-    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizzaresp", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS toppings", [])
   end
 
@@ -26,18 +29,36 @@ defmodule Mix.Tasks.Seed do
       )",
       []
     )
-    Postgrex.query(
+
+    Postgrex.query!(
       DB,
-      "CREATE TABLE pizzaresp (pizzaid INTEGER NOT NULL,
-      toppings VARCHAR(255) NOT NULL
+      "CREATE TABLE toppings (id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL
       )",
       []
     )
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE toppings (id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL
+    "CREATE TABLE pizza_toppings (
+    pizza_id INTEGER REFERENCES pizza(id),
+    topping_id INTEGER REFERENCES toppings(id)
+    )"
+    )
+
+    Postgrex.query!(
+      DB,
+      "CREATE TABLE orders (id SERIAL PRIMARY KEY,
+      status VARCHAR(255)
+      )",
+      []
+    )
+
+    Postgrex.query!(
+      DB,
+      "CREATE TABLE order_items (
+      order_id INTEGER REFERENCES orders(id),
+      pizza_id INTEGER REFERENCES pizza(id)
       )",
       []
     )
@@ -71,13 +92,19 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["salami"])
     Postgrex.query!(DB, "INSERT INTO toppings(name) VALUES($1)", ["chili"])
 
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [1, "1, 2, 3"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [2, "1, 2, 4, 5, 6"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [3, "1, 2, 14, 11, 15"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [4, "1"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [5, "1, 2, 11, 12, 13"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [6, "1, 2, 4, 5"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [7, "1, 2, 8, 9, 10"])
-    Postgrex.query!(DB, "INSERT INTO pizzaresp(pizzaid, toppings) VALUES($1, $2)", [8, "1, 2, 4, 5, 6, 7"])
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (1, 1), (1, 2), (1, 3)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (2, 1), (2, 2), (2, 4), (2, 5), (2, 6)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (3, 1), (3, 2), (3, 14), (3, 11), (3, 15)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (4, 1)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (5, 1), (5, 2), (5, 11), (5, 12), (5, 13)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (6, 1), (6, 2), (6, 4), (6, 5)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (7, 1), (7, 2), (7, 8), (7, 9), (7, 10)")
+    Postgrex.query!(DB, "INSERT INTO pizza_toppings VALUES (8, 1), (8, 2), (8, 5), (8, 6), (8, 7)")
+
+
+    Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart')")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,2)")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,3)")
+
   end
 end
