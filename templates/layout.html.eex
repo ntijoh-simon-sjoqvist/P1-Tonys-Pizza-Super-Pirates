@@ -15,7 +15,7 @@
 		<img src="../Grafiskt material/tonys-pizza-logo.svg">
 	</div>
 	<div class="basket">
-		<img src="../Grafiskt material/tonys-pizza-basket.svg">
+		 <img src="../Grafiskt material/tonys-pizza-basket.svg" alt="basket">
 	</div>
 	</header>
 	<%= template %>

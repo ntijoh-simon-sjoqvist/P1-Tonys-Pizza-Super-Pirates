@@ -5,7 +5,12 @@
 			<img src="../Grafiskt material/<%=pizz.img %>">
 		</section>
 		<section class="text_area">
-			<p><%= html_escape(pizz.name) %>  </p>
+			<h2><%= html_escape(pizz.name) %>  </h2>
+			<ul>
+				<%= for toppings <- pizz.ingredients do %>
+					<p> -- <%=toppings %> </p>
+				<% end %>
+			</ul>
 		</section>
 		<section class="button_box">
 			<form action="" method="post">
@@ -23,4 +28,4 @@
 
 
 
-<a href="/fruits/new">Add new fruit</a>
+<a href="/home/basket">Temporary basket button</a>
