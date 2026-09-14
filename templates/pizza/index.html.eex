@@ -1,3 +1,5 @@
+
+
 <main class="sections">
 	<%= for pizz <- pizza do %>
     <div class="section">
@@ -11,6 +13,7 @@
 					<p> -- <%=toppings %> </p>
 				<% end %>
 			</ul>
+			<h2><%=count%></h2>
 		</section>
 		<section class="button_box">
 			<form method="GET">
