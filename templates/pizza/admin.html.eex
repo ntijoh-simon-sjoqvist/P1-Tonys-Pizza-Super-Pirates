@@ -1,3 +1,28 @@
-<%= for order <- order do %>
-	<p><%= order.pizzas %></p>
-<% end %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tony's Pizza</title>
+	<link rel="stylesheet" type="text/css" href="/admin.css">
+</head>
+
+<body>
+	<h1 class="htag">Customer</h1>
+	<main class="sections">
+	<%= for order <- order do %>
+		<div class="section">
+			<section class="text_area">
+				<h2><%= order.id %>  </h2>
+				<ul>
+					<%= for toppings <- order.pizzas do %>
+						<p> -- <%=toppings %> </p>
+					<% end %>
+				</ul>
+			</section>
+		</div>
+		<% end %>
+</main>
+</body>
+</html>
