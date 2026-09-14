@@ -18,7 +18,7 @@ defmodule Pluggy.Template do
   # paths below are relative to the current working directory.
   def render(file, data \\ [], layout \\ true) do
     case layout do
-      true -> eval("templates/layout.eex", template: eval("templates/#{file}.eex", data))
+      true -> eval("templates/layout.html.eex", template: eval("templates/#{file}.html.eex", data))
       false -> eval("templates/#{file}.eex", data)
     end
   end

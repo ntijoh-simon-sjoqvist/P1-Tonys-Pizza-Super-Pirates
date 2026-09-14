@@ -26,7 +26,7 @@ defmodule Pluggy.PizzaController do
         _ -> User.get(session_user)
       end
 
-    send_resp(conn, 200, render("pizza/basket.html", pizza: Pizza.all(), user: current_user))
+    send_resp(conn, 200, render("pizza/basket", pizza: Pizza.all(), user: current_user))
 end
 
 end
