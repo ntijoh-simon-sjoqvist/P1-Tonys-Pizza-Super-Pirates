@@ -23,9 +23,11 @@ defmodule Pluggy.Router do
 
 
   get("/home", do: PizzaController.index(conn))
+  get("/home/:id", do: PizzaController.index(conn, id))
   get("/home/basket", do: PizzaController.basket(conn))
+  get("/home/edit/:id", do: PizzaController.edit(conn, id))
   get("/admin", do: PizzaController.admin(conn))
-  get("/home/edit", do: PizzaController.edit(conn))
+
 
 
   match _ do

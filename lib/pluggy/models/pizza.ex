@@ -12,6 +12,7 @@ defmodule Pluggy.Pizza do
 
   def get_resp do
 
+
   Postgrex.query!(
     DB,
     "
@@ -26,34 +27,37 @@ defmodule Pluggy.Pizza do
   |> from_result()
 end
 
-def from_result(%Postgrex.Result{rows: rows}) do
-  rows
-  |> Enum.group_by(fn [_id, _pizza_name, _pic, pizza_id, _topping_id, _topping_name] ->
-    pizza_id
-  end)
-  |> Enum.map(fn {_pizza_id, pizza_rows} ->
-    [[id, name, img, _pizza_id, _topping_id, _topping_name] | _] = pizza_rows
+  def from_result(%Postgrex.Result{rows: rows}) do
+    rows
+    |> Enum.group_by(fn [_id, _pizza_name, _pic, pizza_id, _topping_id, _topping_name] ->
+      pizza_id
+    end)
+    |> Enum.map(fn {_pizza_id, pizza_rows} ->
+      [[id, name, img, _pizza_id, _topping_id, _topping_name] | _] = pizza_rows
 
-    ingredients =
-      Enum.map(pizza_rows, fn [
-        _id,
-        _name,
-        _img,
-        _pizza_id,
-        _topping_id,
-        topping_name
-      ] ->
-        topping_name
-      end)
+      ingredients =
+        Enum.map(pizza_rows, fn [
+          _id,
+          _name,
+          _img,
+          _pizza_id,
+          _topping_id,
+          topping_name
+        ] ->
+          topping_name
+        end)
 
-    %Pizza{
-      id: id,
-      name: name,
-      img: img,
-      ingredients: ingredients
-    }
-  end)
-end
+
+
+      %Pizza{
+        id: id,
+        name: name,
+        img: img,
+        ingredients: ingredients
+      }
+    end)
+  end
+
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]).rows
@@ -84,14 +88,4 @@ end
   def to_struct_list(rows) do
     for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, img: picture_id}
   end
-
-end
-
-
-
-
-
-
-
-
 

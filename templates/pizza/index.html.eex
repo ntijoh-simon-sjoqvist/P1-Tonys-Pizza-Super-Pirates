@@ -13,12 +13,12 @@
 			</ul>
 		</section>
 		<section class="button_box">
-			<form action="edit">
-				<input id="wheat" type="submit" value="Anpassa">
+			<form method="GET">
+				<input id="wheat" type="submit" formaction="home/edit.html/<%=pizz.id%>" value="Anpassa">
 
 			</form>
-			<form action="" method="POST">
-				<input id="green" type="submit" value="Köp" name="<%= pizz.id %>">
+			<form method="POST">
+				<input id="green" formaction="/home/basket.html" type="submit" value="Köp" name="<%= pizz.id %>">
 			</form>
 		<section>
 	</div>
