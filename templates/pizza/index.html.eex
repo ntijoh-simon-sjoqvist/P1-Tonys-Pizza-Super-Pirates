@@ -5,7 +5,7 @@
 			<img src="../Grafiskt material/<%=pizz.img %>">
 		</section>
 		<section class="text_area">
-			<h2><%= html_escape(pizz.name) %>  </h2>
+			<h2><%= html_escape(pizz.name) %>   </h2>
 			<ul>
 				<%= for toppings <- pizz.ingredients do %>
 					<p> -- <%=toppings %> </p>
