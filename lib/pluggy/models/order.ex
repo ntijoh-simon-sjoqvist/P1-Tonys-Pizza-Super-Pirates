@@ -41,4 +41,9 @@ defmodule Pluggy.Order do
     end)
   end
 
+  def update(pizza_id) do
+    Postgrex.query!(DB,"INSERT INTO orders(status) VALUES ($1)", [])
+    Postgrex.query!(DB, "INSERT INTO order_items(order_id, pizza_id) VALUES ($1, $2)", [1, pizza_id])
+  end
+
 end
