@@ -20,7 +20,7 @@ defmodule Pluggy.PizzaController do
       ingredients = conn.params["ingredients"] || []
 
 
-    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), user: current_user, updatepizzaing: Update.updatepizzaings(id, ingredients) ))
+    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), user: current_user, updatepizzaing: Update.updatepizzaings(id, ingredients), count: Update.count_matches(id) ))
   end
 
 
@@ -42,7 +42,7 @@ defmodule Pluggy.PizzaController do
   def basket(conn), do: send_resp(conn, 200, render("pizza/basket", pizza: Pizza.all()))
   def admin(conn), do: send_resp(conn, 200, render("pizza/admin.html", [order: Order.get()], false))
   def edit(conn, id), do:  send_resp(conn, 200, render("pizza/edit.html", ing: Edit.get_ing(), pizza: Edit.get_resp(id)))
-  
+
 
 
 
