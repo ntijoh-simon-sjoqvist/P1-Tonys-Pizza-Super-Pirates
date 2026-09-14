@@ -24,15 +24,18 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE pizza (id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL, picture_id VARCHAR(255)
+      "CREATE TABLE pizza (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      picture_id VARCHAR(255)
       )",
       []
     )
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE toppings (id SERIAL PRIMARY KEY,
+      "CREATE TABLE toppings (
+      id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL
       )",
       []
@@ -48,7 +51,8 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE orders (id SERIAL PRIMARY KEY,
+      "CREATE TABLE orders (
+      id SERIAL PRIMARY KEY,
       status VARCHAR(255)
       )",
       []
@@ -67,7 +71,7 @@ defmodule Mix.Tasks.Seed do
   defp seed_data() do
     IO.puts("Seeding data")
 
-    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Magarhita", "margherita.svg"])
+    Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Margherita", "margherita.svg"])
     Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Capricciosa", "capricciosa.svg"])
     Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Diavola", "diavola.svg"])
     Postgrex.query!(DB, "INSERT INTO pizza(name, picture_id) VALUES($1, $2)", ["Marinara", "marinara.svg"])
@@ -103,8 +107,11 @@ defmodule Mix.Tasks.Seed do
 
 
     Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart')")
+    Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart2')")
     Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,2)")
     Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,3)")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (2,4)")
+    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (2,7)")
 
   end
 end

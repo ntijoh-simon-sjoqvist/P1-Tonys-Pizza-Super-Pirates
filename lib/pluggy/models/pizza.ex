@@ -12,19 +12,20 @@ defmodule Pluggy.Pizza do
 
   def get_resp do
 
-    Postgrex.query!(
-      DB,
-      "
-      SELECT pizza.*, pizza_toppings.*, toppings.name
-      FROM pizza
-      JOIN pizza_toppings
-        ON pizza.id = pizza_toppings.pizza_id
-      JOIN toppings
-        ON toppings.id = pizza_toppings.topping_id
-      "
-    )
-    |> from_result()
-  end
+
+  Postgrex.query!(
+    DB,
+    "
+    SELECT pizza.*, pizza_toppings.*, toppings.name
+    FROM pizza
+    JOIN pizza_toppings
+      ON pizza.id = pizza_toppings.pizza_id
+    JOIN toppings
+      ON toppings.id = pizza_toppings.topping_id
+    "
+  )
+  |> from_result()
+end
 
   def from_result(%Postgrex.Result{rows: rows}) do
     rows
@@ -46,7 +47,7 @@ defmodule Pluggy.Pizza do
           topping_name
         end)
 
-      
+
 
       %Pizza{
         id: id,
@@ -56,8 +57,6 @@ defmodule Pluggy.Pizza do
       }
     end)
   end
-
-
 
 
   def get(id) do
