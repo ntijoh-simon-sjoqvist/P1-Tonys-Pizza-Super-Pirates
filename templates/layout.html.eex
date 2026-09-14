@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tony's Pizza</title>
+	<link rel="stylesheet" type="text/css" href="/pluggy.css">
+
+
+</head>
+
+<body>
+	<header>
+	<div class="filler"></div>
+	<div class="logo">
+		<img src="../Grafiskt material/tonys-pizza-logo.svg">
+	</div>
+	<div class="basket">
+		<img src="../Grafiskt material/tonys-pizza-basket.svg">
+	</div>
+	</header>
+	<%= template %>
+</body>
+</html>
