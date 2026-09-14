@@ -13,8 +13,11 @@
 			</ul>
 		</section>
 		<section class="button_box">
-			<form action="" method="post">
+			<form action="edit">
 				<input id="wheat" type="submit" value="anpassa">
+
+			</form>
+			<form action="basket">
 				<input id="green" type="submit" value="köp">
 			</form>
 		<section>
