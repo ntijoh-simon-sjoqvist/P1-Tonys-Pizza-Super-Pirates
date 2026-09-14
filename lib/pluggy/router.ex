@@ -21,9 +21,12 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
+
   get("/home", do: PizzaController.index(conn))
   get("/home/basket", do: PizzaController.basket(conn))
+  get("/admin", do: PizzaController.admin(conn))
   get("/home/edit", do: PizzaController.edit(conn))
+
 
   match _ do
     send_resp(conn, 404, "oop")

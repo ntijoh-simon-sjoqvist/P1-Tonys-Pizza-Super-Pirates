@@ -14,11 +14,11 @@
 		</section>
 		<section class="button_box">
 			<form action="edit">
-				<input id="wheat" type="submit" value="anpassa">
+				<input id="wheat" type="submit" value="Anpassa">
 
 			</form>
-			<form action="basket">
-				<input id="green" type="submit" value="köp">
+			<form action="" method="POST">
+				<input id="green" type="submit" value="Köp" name="<%= pizz.id %>">
 			</form>
 		<section>
 	</div>
