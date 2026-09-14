@@ -13,15 +13,15 @@
 					<p> -- <%=toppings %> </p>
 				<% end %>
 			</ul>
-			<h2><%=count%></h2>
+			<h2><%=inspect(count.count)%></h2>
 		</section>
 		<section class="button_box">
-			<form method="GET">
-				<input id="wheat" type="submit" formaction="home/edit.html/<%=pizz.id%>" value="Anpassa">
+			<form>
+				<input id="wheat" type="submit" formaction="home/edit/<%=pizz.id%>" value="Anpassa">
 
 			</form>
-			<form method="POST">
-				<input id="green" formaction="/home/basket.html" type="submit" value="Köp" name="<%= pizz.id %>">
+			<form>
+				<input id="green" formaction="/home/<%=pizz.id %>" type="submit" value="Köp" name="<%= pizz.id %>">
 			</form>
 		<section>
 	</div>

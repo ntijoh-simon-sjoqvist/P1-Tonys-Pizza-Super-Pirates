@@ -89,3 +89,4 @@ end
     for [id, name, picture_id] <- rows, do: %Pizza{id: id, name: name, img: picture_id}
   end
 
+end

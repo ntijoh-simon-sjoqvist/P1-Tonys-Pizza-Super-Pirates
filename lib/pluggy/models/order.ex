@@ -41,11 +41,10 @@ defmodule Pluggy.Order do
     end)
   end
 
-  def update(pizza_id) do
-    IO.puts(pizza_id)
-    Postgrex.query!(DB,"INSERT INTO orders(status) VALUES ($1)", [])
-    Postgrex.query!(DB, "INSERT INTO order_items(order_id, pizza_id) VALUES ($1, $2)", [1, pizza_id])
+
+  def update(id) do
+    Postgrex.query!(DB, "INSERT INTO order_items(order_id, pizza_id) VALUES ($1, $2)", [1, String.to_integer(id)])
+
   end
 
 end
-
