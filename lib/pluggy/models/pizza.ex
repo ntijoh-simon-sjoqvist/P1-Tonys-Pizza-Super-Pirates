@@ -11,6 +11,7 @@ defmodule Pluggy.Pizza do
   end
 
   def get_resp do
+
   Postgrex.query!(
     DB,
     "
@@ -53,8 +54,6 @@ def from_result(%Postgrex.Result{rows: rows}) do
     }
   end)
 end
-
-
 
   def get(id) do
     Postgrex.query!(DB, "SELECT * FROM pizza WHERE id = $1 LIMIT 1", [String.to_integer(id)]).rows

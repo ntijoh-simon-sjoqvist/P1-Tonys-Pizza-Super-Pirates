@@ -47,7 +47,7 @@ header{
 
 
 .section{
-	
+	border: 1px solid red;
 	display:grid;
 	justify-content: center;
 	grid-template-columns:30% 40%;
@@ -62,12 +62,12 @@ header{
 	grid-area:btn;
 	display: flex;
 	flex-direction: row;
-	background-color:rgb(255, 255, 255);
+	background-color:blueviolet;
 	height:fit-content;
 }
 
 .picture_box {
-	background: rgb(254, 254, 254);
+	background: violet;
 	grid-area:pc;
 }
 
@@ -79,9 +79,7 @@ header{
 
 .text_area {
 	grid-area:txt;
-	background-color:rgb(255, 255, 255);
-	
-
+	background-color:aquamarine;
 }
 
 .button_box > form{

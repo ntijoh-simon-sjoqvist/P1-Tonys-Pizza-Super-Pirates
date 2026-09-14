@@ -1,30 +1,44 @@
 defmodule Pluggy.Order do
-  require IEx
+  # require IEx
   defstruct(id: nil, status: "", pizzas: [])
 
   alias Pluggy.Order
 
-  def get(id) do
-    x = Postgrex.query!(DB,
-    "SELECT orders.*, pizza.*
+  def get() do
+    Postgrex.query!(DB,
+    "SELECT orders.*, pizza.name
     FROM orders
     JOIN order_items
     ON order_items.order_id = orders.id
     JOIN pizza
     ON order_items.pizza_id = pizza.id
-    WHERE orders.id = $1", [String.to_integer(id)])
-
-    IEx.pry()
-    x
-    |> to_struct
+    ")
+    |> from_result()
   end
 
-  def to_struct([[id, status, pizzas]]) do
-    %Order{id: id, status: status, pizzas: pizzas}
-  end
+  def from_result(%Postgrex.Result{rows: rows}) do
+    rows
+    |> Enum.group_by(fn [order_id, _status, _pizza_name] ->
+      order_id
+    end)
+    |> Enum.map(fn {_order_id, order_rows} ->
+      [[id, status, _pizza_name] | _] = order_rows
 
-  def to_struct_list(rows) do
-    for [id, status: status, pizzas: pizzas] <- rows, do: %Order{id: id, status: status, pizzas: pizzas}
+      pizzas =
+        Enum.map(order_rows, fn [
+          _id,
+          _status,
+          pizza_name
+        ] ->
+          pizza_name
+        end)
+
+      %Order{
+        id: id,
+        status: status,
+        pizzas: pizzas
+      }
+    end)
   end
 
 end
