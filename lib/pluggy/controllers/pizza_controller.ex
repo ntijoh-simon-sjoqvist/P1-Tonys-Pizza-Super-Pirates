@@ -1,5 +1,6 @@
 defmodule Pluggy.PizzaController do
   alias Pluggy.Pizza
+  alias Pluggy.Edit
   alias Pluggy.User
   import Pluggy.Template, only: [render: 2]
   import Plug.Conn, only: [send_resp: 3]
@@ -18,7 +19,13 @@ defmodule Pluggy.PizzaController do
   end
 
   def basket(conn), do: send_resp(conn, 200, render("pizza/basket", []))
-  def edit(conn), do: send_resp(conn, 200, render("pizza/edit.html", ing: Pizza.get_ing(), pizza: Pizza.get_resp()))
+  def edit(conn, id) do
+    pizza = Edit.get_resp(id)
+    IO.puts("-------------------------")
+    IO.inspect(pizza)
+    IO.puts("-------------------------")
 
+    send_resp(conn, 200, render("pizza/edit", ing: Edit.get_ing(), pizza: pizza))
+  end
 
 end

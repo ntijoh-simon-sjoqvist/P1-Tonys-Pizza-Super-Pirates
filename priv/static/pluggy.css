@@ -118,3 +118,23 @@ header > img{
 	display: flex;
 	justify-content: flex-end;
 }
+.hidden{
+	visibility: hidden;
+}
+
+#checkboxform{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    scroll-behavior: auto;
+
+    input[type=submit]{
+        height: 200px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+

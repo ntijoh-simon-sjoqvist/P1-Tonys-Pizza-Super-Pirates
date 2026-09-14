@@ -1,0 +1,15 @@
+<form mehtod="GET">
+
+  <%= for alling <- ing do %>
+
+    <% checked? = alling.name in pizza.ingredients %>
+
+    <label><%= html_escape(alling.name) %></label>
+    <input type="checkbox" <%= if checked?, do: "checked" %> >
+
+  <% end %>
+
+  <input type="submit" value="save" formaction="/home">
+  <input type="submit" value="buy" formaction="/home/basket">
+
+</form>
