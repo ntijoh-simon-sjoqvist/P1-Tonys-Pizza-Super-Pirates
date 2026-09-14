@@ -1,0 +1,3 @@
+<%= for order <- order do %>
+	<p><%= order.pizzas %></p>
+<% end %>

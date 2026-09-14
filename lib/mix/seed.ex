@@ -24,15 +24,18 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE pizza (id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL, picture_id VARCHAR(255)
+      "CREATE TABLE pizza (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      picture_id VARCHAR(255)
       )",
       []
     )
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE toppings (id SERIAL PRIMARY KEY,
+      "CREATE TABLE toppings (
+      id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL
       )",
       []
@@ -48,7 +51,8 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
-      "CREATE TABLE orders (id SERIAL PRIMARY KEY,
+      "CREATE TABLE orders (
+      id SERIAL PRIMARY KEY,
       status VARCHAR(255)
       )",
       []
