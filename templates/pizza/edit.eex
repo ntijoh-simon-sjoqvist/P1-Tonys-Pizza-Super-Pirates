@@ -1,15 +1,22 @@
-<form mehtod="GET">
+<form method="GET">
 
-  <%= for alling <- ing do %>
+    <%= for alling <- ing do %>
 
-    <% checked? = alling.name in pizza.ingredients %>
+         <% checked? = alling.name in pizza.ingredients %>
 
-    <label><%= html_escape(alling.name) %></label>
-    <input type="checkbox" <%= if checked?, do: "checked" %> >
+            <label><%= html_escape(alling.name) %></label>
+            <input  type="checkbox" name="ingredients[]" value="<%= alling.name %>"
+            <%= if checked?, do: "checked" %>
+            >
+
+
+
 
   <% end %>
 
-  <input type="submit" value="save" formaction="/home">
-  <input type="submit" value="buy" formaction="/home/basket">
+
+
+  <input type="submit" value="Lägg till" formaction="/home/<%=pizza.id%>">
+
 
 </form>

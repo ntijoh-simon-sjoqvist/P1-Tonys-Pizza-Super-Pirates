@@ -12,8 +12,8 @@
 
 			</section>
 			<section class="button_box">
-				<form action="/home/edit" method="get">
-					<input formaction="home/edit/<%= pizz.id %>"  type="submit" value="anpassa">
+				<form method="get">
+					<input formaction="edit/<%=pizz.id%>"  type="submit" value="anpassa">
 					<input type="submit" value="köp">
 				</form>
 			<section>
