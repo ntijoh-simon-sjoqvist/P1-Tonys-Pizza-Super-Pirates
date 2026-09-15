@@ -13,8 +13,6 @@
 					<p> -- <%=toppings %> </p>
 				<% end %>
 			</ul>
-			<h2> <%=inspect(count.count) %> </h2>
-
 		</section>
 		<section class="button_box">
 			<form>
