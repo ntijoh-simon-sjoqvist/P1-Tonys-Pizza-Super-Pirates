@@ -16,12 +16,17 @@
 	<%= for order <- order do %>
 		<div class="section">
 			<section class="text_area">
-				<h2><%= order.id %>  </h2>
+				<h2>Order #<%= order.id %>  </h2>
 				<ul>
 					<%= for pizzas <- order.pizzas do %>
-						<p> -- <%=pizzas %> </p>
+						-- <%=pizzas %>
 					<% end %>
 				</ul>
+			</section>
+			<section class="button_area">
+				<form>
+					<input id="green" formaction="/home/" type="submit" value="Delete" name="<%=order.id %>">
+			</form>
 			</section>
 		</div>
 		<% end %>

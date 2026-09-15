@@ -14,6 +14,7 @@ defmodule Pluggy.Order do
     ON order_items.pizza_id = pizza.id
     ")
     |> from_result()
+    
   end
 
   def from_result(%Postgrex.Result{rows: rows}) do

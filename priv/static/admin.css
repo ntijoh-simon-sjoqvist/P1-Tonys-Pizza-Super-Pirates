@@ -13,26 +13,53 @@ header{
 .sections {
 	display:grid;
 	grid-template-columns: auto auto;
+	
 	align-items: center;
+	grid-template-areas: 
+	'sc sc'
+	;
 }
 
 
 .section{
+	grid-area:sc;
 	margin: 50px;
-	border: 1px solid red;
+	border: 5px solid rgb(6, 6, 6);
 	display:grid;
 	justify-content: center;
+	float:left;
+	grid-template-columns:auto;
+	grid-template-rows: auto 20%;
+	grid-template-areas:
+	'txt'
+	'btn'
+	;
+
 	
 }
 
 /*-----------------------*/
 
 .text_area{
-	width: 150px;
-	height: 80px;
-	background-color: blue;
+	grid-area:txt;
+	display:flex;
+	flex-wrap:wrap;
+	width:auto;
+	background-color: rgb(255, 255, 255);
+	
 	
 }
+
+.button_area {
+	grid-area:btn;
+	display:flex;
+	flex-wrap:wrap;
+	background-color: aqua;
+	height:fit-content;
+
+}
+
+
 
 .htag{
 	display: flex;
@@ -55,7 +82,7 @@ header{
 	box-shadow: 0px 0px 12px 5px grey;
 }
 
-.body > .sections > .section{
+/* .body > .sections > .section{
 	border: none;
 
 	display:grid;
@@ -64,7 +91,7 @@ header{
 	'pc txt'
 	'pc btn'
 	;
-}
+} */
 
 .body > .sections > .section > form{
 	align-items: center;
