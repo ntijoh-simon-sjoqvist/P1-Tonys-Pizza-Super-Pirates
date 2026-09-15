@@ -1,4 +1,4 @@
-<form method="GET">
+<form method="GET" id="checkboxform">
 
     <%= for alling <- ing do %>
 

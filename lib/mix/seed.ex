@@ -17,6 +17,7 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_toppings", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza", [])
     Postgrex.query!(DB, "DROP TABLE IF EXISTS toppings", [])
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS custom_orders", [])
   end
 
   defp create_tables() do
@@ -58,11 +59,22 @@ defmodule Mix.Tasks.Seed do
       []
     )
 
+
     Postgrex.query!(
       DB,
       "CREATE TABLE order_items (
       order_id INTEGER REFERENCES orders(id),
       pizza_id INTEGER REFERENCES pizza(id)
+      )",
+      []
+    )
+
+    Postgrex.query!(
+      DB,
+      "CREATE TABLE custom_orders (
+      pizza_id SERIAL PRIMARY KEY,
+      order_id INTEGER,
+      toppings VARCHAR(255)
       )",
       []
     )

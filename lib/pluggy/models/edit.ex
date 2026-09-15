@@ -51,7 +51,7 @@ defmodule Pluggy.Edit do
 
 
   def get_ing() do
-    IO.puts(Postgrex.query!(DB, "SELECT * FROM toppings", []).rows)
+  #  IO.puts(Postgrex.query!(DB, "SELECT * FROM toppings", []).rows)
     Postgrex.query!(DB, "SELECT * FROM toppings", []).rows
     |> get_ing_to_struct
   end

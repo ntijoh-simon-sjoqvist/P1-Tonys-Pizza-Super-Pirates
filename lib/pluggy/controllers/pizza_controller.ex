@@ -41,8 +41,8 @@ defmodule Pluggy.PizzaController do
 
   def basket(conn), do: send_resp(conn, 200, render("pizza/basket", pizza: Pizza.all()))
   def admin(conn), do: send_resp(conn, 200, render("pizza/admin.html", [order: Order.get()], false))
-  def edit(conn, id), do:  send_resp(conn, 200, render("pizza/edit.html", ing: Edit.get_ing(), pizza: Edit.get_resp(id)))
-  
+  def edit(conn, id), do:  send_resp(conn, 200, render("pizza/edit", ing: Edit.get_ing(), pizza: Edit.get_resp(id)))
+
 
 
 
