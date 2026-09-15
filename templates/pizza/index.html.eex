@@ -1,3 +1,5 @@
+
+
 <main class="sections">
 	<%= for pizz <- pizza do %>
     <div class="section">
@@ -11,14 +13,15 @@
 					<p> -- <%=toppings %> </p>
 				<% end %>
 			</ul>
+			<h2><%=inspect(count) %></h2>
 		</section>
 		<section class="button_box">
 
-			<form method="GET">
-				<input id="wheat" type="submit" formaction="/home/edit/<%=pizz.id%>" value="Anpassa">
-			</form>
-			<form method="POST">
-				<input id="green" formaction="/home" type="submit" value="Köp" name="<%= pizz.id %>">
+
+			<form>
+				<input id="wheat" type="submit" formaction="../edit/<%=pizz.id%>" value="Anpassa">
+				<input id="green" formaction="/home/<%=pizz.id %>" type="submit" value="Köp" name="<%= pizz.id %>">
+
 			</form>
 		<section>
 	</div>

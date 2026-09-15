@@ -69,15 +69,15 @@ defmodule Mix.Tasks.Seed do
       []
     )
 
-    Postgrex.query!(
-      DB,
-      "CREATE TABLE custom_orders (
-      pizza_id SERIAL PRIMARY KEY,
-      order_id INTEGER,
-      toppings VARCHAR(255)
-      )",
-      []
-    )
+    # Postgrex.query!(
+    #   DB,
+    #   "CREATE TABLE custom_orders (
+    #   pizza_id SERIAL PRIMARY KEY,
+    #   order_id INTEGER,
+    #   toppings VARCHAR(255)
+    #   )",
+    #   []
+    # )
   end
 
   defp seed_data() do
@@ -119,11 +119,6 @@ defmodule Mix.Tasks.Seed do
 
 
     Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart')")
-    Postgrex.query!(DB, "INSERT INTO orders (status) VALUES ('cart2')")
-    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,2)")
-    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (1,3)")
-    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (2,4)")
-    Postgrex.query!(DB, "INSERT INTO order_items (order_id, pizza_id) VALUES (2,7)")
 
   end
 end

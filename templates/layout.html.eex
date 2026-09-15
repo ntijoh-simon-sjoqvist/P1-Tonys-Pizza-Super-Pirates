@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tony's Pizza</title>
-	<link rel="stylesheet" type="text/css" href="/pluggy.css">
+	<link rel="stylesheet" href="/pluggy.css">
 
 
 
@@ -13,11 +13,11 @@
 	<header>
 	<div class="filler"></div>
 	<div class="logo">
-		<img src="../Grafiskt material/tonys-pizza-logo.svg">
+		<img src="../../Grafiskt material/tonys-pizza-logo.svg">
 	</div>
-	<div class="basket">
-		 <img src="../Grafiskt material/tonys-pizza-basket.svg" alt="basket">
-	</div>
+
+		 <a class="basket" href="/basket"><img src="../../Grafiskt material/tonys-pizza-basket.svg" alt="basket"></a>
+
 	</header>
 	<%= template %>
 </body>

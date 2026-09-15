@@ -1,6 +1,6 @@
 defmodule Pluggy.Order do
   # require IEx
-  defstruct(id: nil, status: "", pizzas: [])
+  defstruct(id: nil, status: "", pizzas: [], ingredients: [])
 
   alias Pluggy.Order
 
@@ -40,5 +40,13 @@ defmodule Pluggy.Order do
       }
     end)
   end
+
+
+  def update(id) do
+    Postgrex.query!(DB, "INSERT INTO order_items(order_id, pizza_id) VALUES ($1, $2)", [1, String.to_integer(id)])
+  end
+
+
+
 
 end
