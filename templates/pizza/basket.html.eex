@@ -1,19 +1,13 @@
-<main>
-	<div class="body">
-		<form class="sections">
-			<%= for pizz <- pizza do %>
-			<div class="section">
-			<section class="picture_box">
-				<img src="../Grafiskt material/<%=pizz.img %>">
-			</section>
-			<section class="text_area">
-				<p><%= html_escape(pizz.name) %> </p>
-			</section>
-			</div>
-			<% end %>
-		</form>
-		<div class="end-align">
-		<button type="submit">Place order</button>
-		</div>
+<main class="sections">
+	<%= for basket <- basket do %>
+    <div class="section">
+		<section class="picture_box">
+			<img src="../Grafiskt material/<%=basket.img %>">
+		</section>
+		<section class="text_area">
+			<h2><%= html_escape(basket.name) %></h2>
+			<%= hd(basket.count) %>
+		</section>
 	</div>
+	<% end %>
 </main>
