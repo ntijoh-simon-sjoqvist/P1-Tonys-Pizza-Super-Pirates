@@ -1,12 +1,18 @@
-<main class="sections">
+<main class="sectionss">
 	<%= for basket <- basket do %>
-    <div class="section">
+    <div class="sectionn">
 		<section class="picture_box">
 			<img src="../Grafiskt material/<%=basket.img %>">
 		</section>
 		<section class="text_area">
-			<h2><%= html_escape(basket.name) %></h2>
-			<%= hd(basket.count) %>
+			<h2><%= basket.name %></h2>
+		</section>
+		<section class="count">
+			<h2><%= hd(basket.count) %></h2>
+		</section>
+		<section class="input">
+			<input type="submit" formaction="update" value="Lägg till">
+			<input type="submit" formaction="" value="Ta bort">
 		</section>
 	</div>
 	<% end %>

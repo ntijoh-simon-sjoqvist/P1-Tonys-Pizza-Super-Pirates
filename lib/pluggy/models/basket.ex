@@ -44,4 +44,8 @@ alias Pluggy.Basket
       }
     end)
   end
+
+  def update(id) do
+    Postgrex.query!(DB, "INSERT INTO order_items(order_id, pizza_id) VALUES ($1, $2)", [1, String.to_integer(id)])
+  end
 end

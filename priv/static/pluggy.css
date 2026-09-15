@@ -167,3 +167,58 @@ header{
     }
     
 }
+
+
+/*-----------------------*/
+
+.sectionss {
+	display:grid;
+	grid-template-columns: auto;
+	width: 50%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 70px;
+}
+
+
+.sectionn{
+	display:grid;
+	align-items: center;
+	grid-template-areas: 'img txt count input';
+	grid-template-rows:auto 1fr;
+	border-bottom: 1px solid black;
+}
+
+.sectionn > .picture_box {
+	grid-area: img;
+	background: rgb(254, 254, 254);
+}
+
+.sectionn > .picture_box > img{
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+}
+
+.sectionn > .text_area {
+	grid-area: txt;
+	margin: auto auto;
+	background-color: rgb(255, 255, 255);
+}
+
+.sectionn > .count{
+	margin: auto auto;
+	grid-area: count;
+}
+
+.sectionn > .input{
+	grid-area: input;
+	display: flex;
+	margin: auto auto;
+	flex-direction: column;
+}
+
+.sectionn > .input > input{
+
+}
+/*-----------------------*/
