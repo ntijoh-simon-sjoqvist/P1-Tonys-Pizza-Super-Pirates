@@ -4,6 +4,7 @@ defmodule Pluggy.PizzaController do
   alias Pluggy.Update
   alias Pluggy.Order
   alias Pluggy.User
+  alias Pluggy.Test
   import Pluggy.Template, only: [render: 2, render: 3]
   import Plug.Conn, only: [send_resp: 3]
 
@@ -15,7 +16,7 @@ defmodule Pluggy.PizzaController do
 
 
 
-    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), order: Order.update(id), updatepizzaing: Update.updatepizzaings(id, ingredients), count: Update.count_matches(id) ))
+    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), order: Order.update(id), updatepizzaing: Update.updatepizzaings(id, ingredients), count: Test.count_matches(id) ))
 
   end
 
@@ -30,13 +31,13 @@ defmodule Pluggy.PizzaController do
         _ -> User.get(session_user)
       end
 
-    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), user: current_user, count: []))
+    send_resp(conn, 200, render("pizza/index", pizza: Pizza.get_resp(), user: current_user))
   end
 
 
 
   def basket(conn), do: send_resp(conn, 200, render("pizza/basket", pizza: Pizza.all()))
-  def admin(conn), do: send_resp(conn, 200, render("pizza/admin", [order: Order.get()], false))
+  def admin(conn), do: send_resp(conn, 200, render("pizza/admin.html", [order: Order.get()], false))
   def edit(conn, id), do:  send_resp(conn, 200, render("pizza/edit", ing: Edit.get_ing(), pizza: Edit.get_resp(id)))
 
 
