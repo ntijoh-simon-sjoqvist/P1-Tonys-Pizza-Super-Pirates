@@ -34,9 +34,9 @@ header{
 }
 
 .basket > img:hover{
-	background: black;
+	cursor: pointer;
+	scale: 1.1;
 }
-
 
 /*------------------------*/
 .sections {
@@ -166,4 +166,3 @@ header{
     }
     
 }
-

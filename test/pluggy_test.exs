@@ -5,9 +5,9 @@ defmodule PluggyTest do
 
   @opts Pluggy.Router.init([])
 
-  test "GET /fruits/new renders the new fruit form" do
+  test "GET /pizza/home renders the index form" do
     conn =
-      conn(:get, "/fruits/new")
+      conn(:get, "/pizza/home")
       |> Pluggy.Router.call(@opts)
 
     assert conn.state == :sent

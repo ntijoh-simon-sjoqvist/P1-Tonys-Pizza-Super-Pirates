@@ -16,6 +16,8 @@ defmodule Pluggy.Template do
   # work in a release, but it means you can edit a template and just reload the page, no
   # recompile needed. It is also why the app must be started from the project root: the
   # paths below are relative to the current working directory.
+
+
   def render(file, data \\ [], layout \\ true) do
     case layout do
       true -> eval("templates/layout.html.eex", template: eval("templates/#{file}.html.eex", data))
